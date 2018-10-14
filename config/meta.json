@@ -1,0 +1,17 @@
+{
+    "name": "Example Script",
+    "namespace": "http://www.example.com/gmscripts",
+    "description": "",
+    "include": ["http://www.example.com/*", "http://www.example.org/*"],
+    "exclude": [],
+    "version": "1.0",
+    "require": ["https://greasemonkey.github.io/gm4-polyfill/gm4-polyfill.js"],
+    "grant": ["notification"],
+    "icon": "http://www.example.net/icon.png",
+    "match": [],
+    "noframes": false,
+    "resource": [],
+    "run-at": "",
+
+    "GM3Compat": true
+}
