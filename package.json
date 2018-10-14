@@ -9,6 +9,8 @@
     "build:prod": "cross-env NODE_ENV=production npm run build"
   },
   "devDependencies": {
+    "@babel/core": "^7.1.2",
+    "@babel/preset-env": "^7.1.0",
     "@types/node": "^10.11.7",
     "@types/uglifyjs-webpack-plugin": "^1.1.0",
     "@types/webpack": "^4.4.16",
