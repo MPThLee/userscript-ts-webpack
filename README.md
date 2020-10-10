@@ -1,5 +1,5 @@
 
-Example GM4 Userscript With TypeScript 3 & Webpack 4
+Example GM4 Userscript With TypeScript 4 & Webpack 4
 =======
 
 Install & Run 

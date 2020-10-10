@@ -46,10 +46,7 @@ const config: webpack.Configuration = {
         exclude: /node_modules/,
         use: [
           {
-            loader: "awesome-typescript-loader",
-            options: {
-              allowJs: true
-            }
+            loader: "ts-loader",
           }
         ]
       },
