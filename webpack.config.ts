@@ -1,8 +1,7 @@
 //'use strict'
 
 import webpack from "webpack";
-import UglifyJsPlugin from "uglifyjs-webpack-plugin";
-import MiniCssExtractPlugin from "mini-css-extract-plugin";
+import TerserPlugin from "terser-webpack-plugin";
 import * as path from "path";
 import { UserScriptHeaderPlugin } from "./config/header";
 
@@ -54,10 +53,7 @@ const config: webpack.Configuration = {
         test: /\.s?css$/,
         exclude: /node_modules/,
         use: [
-          "to-string-loader",
-          process.env.NODE_ENV !== "production"
-            ? "style-loader"
-            : MiniCssExtractPlugin.loader,
+          "style-loader",
           "css-loader",
           "sass-loader"
         ]
@@ -70,28 +66,16 @@ const config: webpack.Configuration = {
   },
   optimization: {
     minimizer: [
-      new UglifyJsPlugin({
-        uglifyOptions: {
-          output: {
-            comments: new RegExp(
-              // Licenses
-              "@(preserve|license|cc_on)" +
-                // Greasemonkey metadata.
-                "|@(description|exclude|grant|icon|include|match|name|namespace|noframes|require|resource|run-at|version)" +
-                "|==/?UserScript==",
-              "i"
-            ),
-            beautify: false
-          }
+      new TerserPlugin({
+        terserOptions: {
+          ecma: 2015,
+          beautify: false
         }
       })
     ]
   },
   plugins: [
-    new UserScriptHeaderPlugin(),
-    new MiniCssExtractPlugin({
-      filename: "[name].css"
-    })
+    new UserScriptHeaderPlugin()
   ]
 };
 
