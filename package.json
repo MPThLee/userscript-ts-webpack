@@ -6,7 +6,8 @@
   "scripts": {
     "build": "cross-env TS_NODE_PROJECT=\"./config/tsconfig_webpack.json\" webpack",
     "build:dev": "cross-env NODE_ENV=development npm run build",
-    "build:prod": "cross-env NODE_ENV=production npm run build"
+    "build:prod": "cross-env NODE_ENV=production npm run build",
+    "build:prod-min": "cross-env MINIMIZER=TRUE npm run build:prod"
   },
   "devDependencies": {
     "@babel/core": "^7.11.6",

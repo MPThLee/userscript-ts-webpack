@@ -65,6 +65,7 @@ const config: webpack.Configuration = {
     ]
   },
   optimization: {
+    minimize: process.env.MINIMIZER === "TRUE" ? true : false,
     minimizer: [
       new TerserPlugin({
         terserOptions: {
